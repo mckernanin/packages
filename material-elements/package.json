@@ -29,9 +29,9 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "material-tsdx",
+  "name": "material-elements",
   "author": "Kevin McKernan",
-  "module": "dist/material-tsdx.esm.js",
+  "module": "dist/material-elements.esm.js",
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@storybook/addon-actions": "^5.2.8",

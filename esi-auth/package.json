@@ -28,7 +28,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "esi-auth-tsdx",
+  "name": "esi-auth",
   "author": "Kevin McKernan",
   "module": "dist/esi-auth.esm.js",
   "devDependencies": {

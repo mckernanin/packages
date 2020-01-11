@@ -1,5 +1,5 @@
 import React from 'react';
-import { Thing } from '@';
+import { Thing } from '../src';
 
 export default {
   title: 'Welcome',
