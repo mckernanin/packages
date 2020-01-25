@@ -1,4 +1,10 @@
 {
+  "name": "@mckernanin/esi-auth",
+  "author": "Kevin McKernan",
+  "module": "dist/esi-auth.esm.js",
+  "repository": {
+    "url": "git@github.com:mckernanin/packages.git"
+  },
   "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",
@@ -19,7 +25,7 @@
   "peerDependencies": {},
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint"
+      "pre-commit": "tsdx lint --fix"
     }
   },
   "prettier": {
@@ -28,9 +34,6 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "esi-auth",
-  "author": "Kevin McKernan",
-  "module": "dist/esi-auth.esm.js",
   "devDependencies": {
     "@types/jest": "^24.0.25",
     "@types/simple-oauth2": "^2.5.2",

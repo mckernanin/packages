@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/camelcase */
-import { create, Token, OAuthClient } from "simple-oauth2";
+import { create, Token, OAuthClient } from 'simple-oauth2';
 /**
  * Interface for JWT
  */
@@ -54,35 +54,31 @@ export default class ESIAuth {
     this.oauth = create({
       client: {
         id: clientId,
-        secret: clientSecret
+        secret: clientSecret,
       },
       auth: {
-        tokenHost: "https://login.eveonline.com/"
-      }
-    })
+        tokenHost: 'https://login.eveonline.com/',
+      },
+    });
   }
 
-  async checkAccessToken(
-    token: OauthToken | Token
-  ): Promise<OauthToken> {
+  async checkAccessToken(token: OauthToken | Token): Promise<OauthToken> {
     let accessToken = this.oauth.accessToken.create(token);
     if (accessToken.expired()) {
       try {
         accessToken = await accessToken.refresh();
       } catch (error) {
         console.log(error);
-        console.log("Error refreshing access token: ", error.message);
+        console.log('Error refreshing access token: ', error.message);
       }
     }
-    return (accessToken.token) as OauthToken;
+    return accessToken.token as OauthToken;
   }
-  async getRefreshToken(
-    code: string,
-  ): Promise<Token> {
+  async getRefreshToken(code: string): Promise<Token> {
     const tokenConfig = {
       code,
       scope: this.scopes,
-      redirect_uri: this.redirectUrl
+      redirect_uri: this.redirectUrl,
     };
     const result = await this.oauth.authorizationCode.getToken(tokenConfig);
     return this.oauth.accessToken.create(result);
@@ -91,22 +87,23 @@ export default class ESIAuth {
   async getToken(code: string): Promise<OauthToken> {
     const tokenConfig = {
       code,
-      scope: "publicData",
-      redirect_uri: this.redirectUrl
+      scope: 'publicData',
+      redirect_uri: this.redirectUrl,
     };
     const result = await this.oauth.authorizationCode.getToken(tokenConfig);
     const accessToken = this.oauth.accessToken.create(result);
     return accessToken.token as OauthToken;
-  };
+  }
 
-  getLoginUrl = () => this.oauth.authorizationCode.authorizeURL({
-    redirect_uri: this.redirectUrl,
-    scope: "publicData"
-  });
+  getLoginUrl = () =>
+    this.oauth.authorizationCode.authorizeURL({
+      redirect_uri: this.redirectUrl,
+      scope: 'publicData',
+    });
 
-  getAuthorizationUrl = () => this.oauth.authorizationCode.authorizeURL({
-    redirect_uri: this.redirectUrl,
-    scope: this.scopes
-  });
-
+  getAuthorizationUrl = () =>
+    this.oauth.authorizationCode.authorizeURL({
+      redirect_uri: this.redirectUrl,
+      scope: this.scopes,
+    });
 }

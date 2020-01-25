@@ -14,11 +14,11 @@ interface EnvironmentVariables {
 }
 
 const variables: EnvironmentVariables = {
-  esiId: throwIfUndefined("ESI_CLIENT"),
-  esiSecret: throwIfUndefined("ESI_SECRET"),
-  redirectUrl: `${throwIfUndefined("REDIRECT_URL")}/oauth/callback`,
-  jwtExpire: throwIfUndefined("JWT_EXPIRE"),
-  jwtSecret: throwIfUndefined("JWT_SECRET")
+  esiId: throwIfUndefined('ESI_CLIENT'),
+  esiSecret: throwIfUndefined('ESI_SECRET'),
+  redirectUrl: `${throwIfUndefined('REDIRECT_URL')}/oauth/callback`,
+  jwtExpire: throwIfUndefined('JWT_EXPIRE'),
+  jwtSecret: throwIfUndefined('JWT_SECRET'),
 };
 
 export default variables;
